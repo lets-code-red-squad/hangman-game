@@ -1,1 +1,1 @@
-var luan2 = ''
+var luan = ''
