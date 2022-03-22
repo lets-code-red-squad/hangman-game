@@ -8,4 +8,5 @@ Fazer um jogo da forca (não precisa mostrar nada no DOM, somente usando alert e
 - Fazer todas as validações necessárias (prever erros do usuário, como digitar um número ao invés de uma letra, dentre outros);
 22h04
 
+
 - EXTRA: CRIAR A INTERFACE GRÁFICA
