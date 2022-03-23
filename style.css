@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .boneco {
   position: relative;
 }
@@ -46,4 +50,3 @@
   height: 75px;
   width: 5px;
   transform: rotate(45deg);
-}
