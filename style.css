@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+}
+
+.boneco {
+  position: relative;
+}
+
+.cabeça {
+  position: absolute;
+  border: solid 5px black;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+}
+
+.corpo {
+  background-color: black;
+  height: 200px;
+  width: 5px;
+}
+
+.braco-esquerdo {
+  position: absolute;
+  background-color: black;
+  height: 75px;
+  width: 5px;
+  transform: rotate(-145deg);
+}
+
+.braco-direito {
+  position: absolute;
+  background-color: black;
+  height: 75px;
+  width: 5px;
+  transform: rotate(145deg);
+}
+
+.perna-direita {
+  position: absolute;
+  background-color: black;
+  height: 75px;
+  width: 5px;
+  transform: rotate(-45deg);
+}
+
+.perna-esquerda {
+  position: absolute;
+  background-color: black;
+  height: 75px;
+  width: 5px;
+  transform: rotate(45deg);
