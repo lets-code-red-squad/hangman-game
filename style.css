@@ -1,52 +1,74 @@
-body {
-    margin: 0;
-}
-
 .boneco {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cabeça {
-  position: absolute;
   border: solid 5px black;
   border-radius: 100%;
   width: 100px;
   height: 100px;
+  display: none;
 }
-
+.meio{
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
 .corpo {
   background-color: black;
-  height: 200px;
-  width: 5px;
+  height: 160px;
+  width: 7px;
+  display: none;
 }
 
 .braco-esquerdo {
   position: absolute;
+  margin-left: -45px;
   background-color: black;
   height: 75px;
   width: 5px;
   transform: rotate(-145deg);
+  display: none;
 }
 
 .braco-direito {
   position: absolute;
+  margin-right: -45px;
   background-color: black;
   height: 75px;
   width: 5px;
   transform: rotate(145deg);
+  display: none;
 }
-
+.pernas{
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
 .perna-direita {
   position: absolute;
+  margin-right: -45px;
+  margin-top: -10px;
   background-color: black;
   height: 75px;
   width: 5px;
-  transform: rotate(-45deg);
+  transform: rotate(145deg);
+  display: none;
 }
 
 .perna-esquerda {
   position: absolute;
+  margin-left: -45px;
+  margin-top: -10px;
   background-color: black;
   height: 75px;
   width: 5px;
-  transform: rotate(45deg);
+  transform: rotate(-145deg);
+  display: none;
+}
+
+.show{
+
+}
