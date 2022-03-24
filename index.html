@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hangman Game</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <h1>Jogo da Forca</h1>
-  <h2>Digite uma letra e tente novamente</h2>
-  <div class="boneco">
-    <div class="cabeca"></div>
-    <div class="meio">
-      <div class="braco-esquerdo"></div>
-      <div class="corpo"></div>
-      <div class="braco-direito"></div>
+  <body>
+    <h1>Jogo da Forca</h1>
+    <h2>Digite uma letra e tente novamente</h2>
+    <div class="boneco">
+      <div class="cabeca"></div>
+      <div class="meio">
+        <div class="braco-esquerdo"></div>
+        <div class="corpo"></div>
+        <div class="braco-direito"></div>
+      </div>
+      <div class="pernas">
+        <div class="perna-esquerda"></div>
+        <div class="perna-direita"></div>
+      </div>
     </div>
-    <div class="pernas">
-      <div class="perna-esquerda"></div>
-      <div class="perna-direita"></div>
-    </div>
-  </div>
-  
-  <button id="try-again">Tente Novamente</button>
 
-  <div id="palavra" class="flex"></div>
+    <button id="try-again">Tente Novamente</button>
 
+    <div id="palavra" class="flex"></div>
 
-  <script src="script.js"></script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
