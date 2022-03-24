@@ -72,6 +72,7 @@ function verificaLetra(code) {
     if (!(riscos.includes('_'))){
         console.log(riscos)
         ok = false
+        apresentaPalavra()
         return console.log('Parabéns, você venceu!');
         
     }
@@ -92,16 +93,18 @@ function verificaLetra(code) {
 
 function apresentaPalavra(){
     palavraH.innerHTML = ''
-    let letra = document.createElement('div')
+    
     for (let i = 0; i < riscos.length; i++) {
+        var letra = document.createElement('div')
         
         if (riscos[i] == '  '){
-            letra.innerHTML = `&nbsp`
-        }else {letra.innerHTML = riscos[i];}
-        palavraH.appendChild(letra);
+            palavraH.innerHTML += `<pre>  </pre>`;
+         
+        }else {
+            palavraH.innerHTML += riscos[i] + ` `;     
+        }
+        
     }
-    
-
 
 }
 
