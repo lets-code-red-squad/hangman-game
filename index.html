@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,30 @@
   <title>Hangman Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <h1>Jogo da Forca</h1>
   <h2>Digite uma letra e tente novamente</h2>
   <div class="boneco">
     <div class="cabeça"></div>
-    <div class="corpos"></div>
-    <div class="braco-esquerdo"></div>
-    <div class="braco-direito"></div>
-    <div class="perna-esquerda"></div>
-    <div class="perna-direita"></div>
+    <div class="meio">
+      <div class="braco-esquerdo"></div>
+      <div class="corpo"></div>
+      <div class="braco-direito"></div>
+    </div>
+    <div class="pernas">
+      <div class="perna-esquerda"></div>
+      <div class="perna-direita"></div>
+    </div>
   </div>
-
-
-  <div id="palavra"></div>
-  <button id="try-again">Tentar Novamente</button>
   
+  <button id="try-again">Tente Novamente</button>
+
+  <div id="palavra" class="flex"></div>
+
+
   <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 const teste = document.getElementById('teste');
 const btnTryAgain = document.getElementById('try-again');
 const palavra = document.getElementById('palavra');
+const letras = document.getElementsByClassName('letra');
 const palavras = [
   {
     'brasil': [
@@ -34,33 +35,67 @@ const palavras = [
 ];
 
 const aleatoriza = (element) => Math.floor(Math.random() * element.length)
-
 let aleatorizarTema = palavras[aleatoriza(palavras)]
 
 btnTryAgain.onclick = () => {
-  aleatorizarTema = palavras[Math.floor(Math.random() * palavras.length)];
-  sorteio();
+  palavra.innerHTML = '';
+  risquinhos();
+  aleatorizarTema = palavras[aleatoriza(palavras)];
+  const novaPalavra = retornaPalavra();
 }
 
-const sorteio = () => {
+const trocaLetras = (word, letra) => {
+  const indices = [];
+  console.log(word)
+
+  const teste = word.map(() => word.forEach((letter, index) => letter === letra ? indices.push(index) : ''));
+  // console.log(teste)
+
+}
+
+
+const retornaPalavra = () => {
   const wordKeys = palavras.map((chaves) => Object.keys(chaves));
   const wordThemes = wordKeys[aleatoriza(wordKeys)];
   const wordChosen = wordThemes[aleatoriza(wordThemes)].split('');
-  const indices = [];
 
-  for (let i = 0; )
-
-  wordChosen.map(() => wordChosen.forEach((letter, index) => letter === 'a' ? indices.push(index) : 'letra não encontrada'));
-  const indicesFiltrados = indices.sort((a, b) => a - b).filter((numero, index) => indices.indexOf(numero) === index);
-
-  return palavras.length;
+  return wordChosen;
 }
 
-sorteio();
+const novaPalavra = retornaPalavra();
 
+const risquinhos = () => {
+  if (palavra.children.length === 0) {
+    for (let i = 0; i < novaPalavra.length; i += 1) {
+      const letra = document.createElement('div');
+      letra.classList.add('letra');
+      if (novaPalavra[i] === ' ') {
+        letra.innerHTML = ' ';
+      } else {
+        letra.innerHTML = '_';
+      }
+      palavra.appendChild(letra);
+    }
+  }
+}
+
+risquinhos();
+
+trocaLetras(retornaPalavra())
+const sorteio = (word) => {
+  const indices = [];
+  const indicesFiltrados = indices.sort((a, b) => a - b).filter((numero, index) => indices.indexOf(numero) === index);
+
+  return indicesFiltrados;
+}
+
+// sorteio();
 window.onkeydown = (event) => {
   const code = event.keyCode >= 65 && event.keyCode <= 90
     ? event.key
     : '';
 
+  trocaLetras(novaPalavra ,code)
 }
+
+
