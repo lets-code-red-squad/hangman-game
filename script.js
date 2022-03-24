@@ -2,6 +2,29 @@ const teste = document.getElementById('teste');
 const btnTryAgain = document.getElementById('try-again');
 const palavra = document.getElementById('palavra');
 const letras = document.getElementsByClassName('letra');
+const boneco = document.getElementsByClassName('boneco')[0];
+let counter = 0;
+
+const cabeca = boneco.children[0];
+
+const meio = boneco.children[1].children;
+const bracoEsquerdo = meio[0];
+const tronco = meio[1];
+const bracoDireito = meio[2];
+
+const pernas = boneco.children[2].children;
+const pernaEsquerda = pernas[0];
+const pernaDireita = pernas[1];
+
+const corpo = [
+  cabeca,
+  tronco,
+  bracoEsquerdo,
+  bracoDireito,
+  pernaEsquerda,
+  pernaDireita,
+]
+
 const palavras = [
   {
     'brasil': [
@@ -27,9 +50,9 @@ const palavras = [
       'amarela',
       'potássio'
     ],
-    'maça': [
-      'vermelha',
-      'dá fome',
+    'uva': [
+      'roxa',
+      'bom no calor',
     ]
   },
 ];
@@ -39,20 +62,31 @@ let aleatorizarTema = palavras[aleatoriza(palavras)]
 
 btnTryAgain.onclick = () => {
   palavra.innerHTML = '';
-  risquinhos();
+  novaPalavra = retornaPalavra();
+  risquinhos(novaPalavra);
   aleatorizarTema = palavras[aleatoriza(palavras)];
-  const novaPalavra = retornaPalavra();
 }
+
+const erro = () => {
+  if (counter === 6) {
+    return 'VOCÊ PERDEU!!!'
+  }
+
+  console.log('aaa')
+
+  corpo[counter].classList.add('show');
+  counter += 1;
+}
+
+const verificaLetra = (word, letra) => {};
 
 const trocaLetras = (word, letra) => {
   const indices = [];
-  console.log(word)
 
-  const teste = word.map(() => word.forEach((letter, index) => letter === letra ? indices.push(index) : ''));
-  // console.log(teste)
-
+  return word.map(() => word.forEach((letter, index) => letter === letra
+    ? letras[index].innerHTML = letter
+    : letter));
 }
-
 
 const retornaPalavra = () => {
   const wordKeys = palavras.map((chaves) => Object.keys(chaves));
@@ -62,9 +96,8 @@ const retornaPalavra = () => {
   return wordChosen;
 }
 
-const novaPalavra = retornaPalavra();
 
-const risquinhos = () => {
+const risquinhos = (novaPalavra) => {
   if (palavra.children.length === 0) {
     for (let i = 0; i < novaPalavra.length; i += 1) {
       const letra = document.createElement('div');
@@ -79,23 +112,15 @@ const risquinhos = () => {
   }
 }
 
-risquinhos();
+let novaPalavra = retornaPalavra();
+risquinhos(novaPalavra);
 
-trocaLetras(retornaPalavra())
-const sorteio = (word) => {
-  const indices = [];
-  const indicesFiltrados = indices.sort((a, b) => a - b).filter((numero, index) => indices.indexOf(numero) === index);
-
-  return indicesFiltrados;
-}
-
-// sorteio();
 window.onkeydown = (event) => {
-  const code = event.keyCode >= 65 && event.keyCode <= 90
+  const code = event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 186
     ? event.key
     : '';
 
-  trocaLetras(novaPalavra ,code)
+  trocaLetras(novaPalavra, code);
 }
 
 
