@@ -2,6 +2,8 @@ const btnTryAgain = document.getElementById("try-again");
 const palavra = document.getElementById("palavra");
 const letras = document.getElementsByClassName("letra");
 const boneco = document.getElementsByClassName("boneco")[0];
+const letrasErradasDiv = document.getElementById('letras-erradas')
+const letrasUsadasDiv = document.getElementById('letras-usadas')
 const letrasErradas = [];
 const letrasCertas = [];
 const todasLetras = [];
@@ -45,17 +47,24 @@ btnTryAgain.onclick = () => {
 
 const geraBoneco = (letra) => {
   const keys = Object.keys(corpo);
-
-  console.log(letrasErradas);
+  if (letrasErradas.includes(letra)) {
+    return alert('Letra repetida!')
+  }
+  
+  todasLetras.push(letra);
+  
   letrasErradas.push(letra);
   corpo[keys[counter]].classList.add("show");
   counter += 1;
+  if (counter === 6) {
+    alert('PERDEU! PERDEU!')
+  }
 };
 
 const verificaLetra = (word, letra) => {
   if (word.includes(letra)) {
     if (todasLetras.includes(letra)) {
-      return console.log("letra repetida");
+      return alert("letra repetida");
     } else {
       todasLetras.push(letra);
       letrasCertas.push(letra);
@@ -67,8 +76,6 @@ const verificaLetra = (word, letra) => {
 };
 
 const trocaLetras = (word, letra) => {
-  const indices = [];
-
   return word.map(() =>
     word.forEach((letter, index) =>
       letter === letra ? (letras[index].innerHTML = letter) : letter
@@ -108,6 +115,14 @@ window.onkeydown = (event) => {
     (event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === 186
       ? event.key
       : "";
-  trocaLetras(novaPalavra, code);
-  verificaLetra(novaPalavra, code);
+
+  console.log(code)
+  if (code !== '') {
+    trocaLetras(novaPalavra, code);
+    verificaLetra(novaPalavra, code);
+      
+  } else {
+    alert('Digite uma letra.')
+  }
+
 };
