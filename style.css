@@ -1,7 +1,17 @@
+.flex {
+  display: flex;
+}
+
+.letra {
+  font-size: 70px;
+  padding: 15px;
+}
+
 .boneco {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 500px;
 }
 
 .cabeça {
@@ -69,6 +79,6 @@
   display: none;
 }
 
-.show{
-
+.show {
+  display: flex;
 }
