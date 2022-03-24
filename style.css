@@ -11,10 +11,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
+  height: 400px;
 }
 
-.cabeça {
+.cabeca {
   border: solid 5px black;
   border-radius: 100%;
   width: 100px;
@@ -81,4 +81,11 @@
 
 .show {
   display: flex;
+}
+
+.palavra{
+  font-size: 16px;
+}
+.espaco{
+  width: 50px;
 }
