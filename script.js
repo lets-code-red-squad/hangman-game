@@ -124,5 +124,4 @@ window.onkeydown = (event) => {
   } else {
     alert('Digite uma letra.')
   }
-
 };

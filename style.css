@@ -84,6 +84,12 @@
   display: none;
 }
 
-.show {
+.palavra{
+  font-size: 16px;
+}
+.espaco{
+  width: 50px;
+}
+
   display: block;
 }
