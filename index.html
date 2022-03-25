@@ -8,13 +8,15 @@
   <title>Hangman Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
+  <h1>Jogo da Forca</h1>  
+
   <div id="popup">
     <button id="try-again">Tente Novamente</button>
   </div>
-
-  <div id="info">
+  <h2 id="text1">Bem vindo ao jogo da forca. Insira seus dados para iniciar o jogo.</h2>
+  <div id="info" class="cadastro">
     <div>
       <label for="nome">Nome:</label>
       <input type="text" id="nome" required>
@@ -26,31 +28,33 @@
     <button id="btn-start">Iniciar</button>
   </div>
 
-
   <div id="jogo">
-    <h1>Jogo da Forca</h1>
-    <h2>Digite uma letra e tente novamente</h2>
+    <h2>Tente adivinhar qual é a palavra, utilizando seu teclado para digitar as letras.</h2>
     <div>
       <p>Derrotas: <span id="derrotas">0</span> &nbsp &nbsp &nbsp Vitórias: <span id="vitorias">0</span></p>
     </div>
-    <h3>Tema: <span id="dica"></span></h3> 
-    <div class="boneco">
-      <div class="cabeca"></div>
-      <div class="meio">
-        <div class="braco-esquerdo"></div>
-        <div class="corpo"></div>
-        <div class="braco-direito"></div>
-      </div>
-      <div class="pernas">
-        <div class="perna-esquerda"></div>
-        <div class="perna-direita"></div>
+    <h2>Tema: <span id="dica"></span></h2> 
+
+    <div id="palavra" class="letra flex"></div>
+    <div class="forca">
+      <div class="boneco">
+        <div class="cabeca"></div>
+        <div class="meio">
+          <div class="braco-esquerdo"></div>
+          <div class="corpo"></div>
+          <div class="braco-direito"></div>
+        </div>
+        <div class="pernas">
+          <div class="perna-esquerda"></div>
+          <div class="perna-direita"></div>
+        </div>
       </div>
     </div>
   
-    <div id="palavra" class="letra flex"></div>
+    
   </div>
 
-  <script src="script2.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
