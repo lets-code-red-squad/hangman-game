@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hangman Game</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
+  <h1>Jogo da Forca</h1>
+
+  <div id="popup">
+    <button id="try-again">Jogar Novamente</button>
+  </div>
+  <h2 id="text1">Bem vindo ao jogo da forca. Insira seus dados para iniciar o jogo.</h2>
+  <div id="info" class="cadastro">
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" autofocus>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" pattern=".+@globex.com" size="30">
+    </div>
+    <button id="btn-start">Iniciar</button>
+  </div>
+
+  <div id="jogo">
+    <h2>Tente adivinhar qual é a palavra, utilizando seu teclado para digitar as letras.</h2>
+    <div>
+      <p>Derrotas: <span id="derrotas">0</span> &nbsp &nbsp &nbsp Vitórias: <span id="vitorias">0</span></p>
+    </div>
+    <h2>Tema: <span id="dica"></span></h2>
+
+    <div class="forca">
+      <div class="boneco">
+        <div class="cabeca"></div>
+        <div class="meio">
+          <div class="braco-esquerdo"></div>
+          <div class="corpo"></div>
+          <div class="braco-direito"></div>
+        </div>
+        <div class="pernas">
+          <div class="perna-esquerda"></div>
+          <div class="perna-direita"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="palavra" class="letra flex"></div>
+
+  </div>
+
   <script src="script.js"></script>
+
 </body>
+
 </html>
