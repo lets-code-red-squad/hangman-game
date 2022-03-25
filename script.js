@@ -15,7 +15,6 @@ const derrotas = document.getElementById('derrotas');
 const vitorias = document.getElementById('vitorias');
 const text1 = document.getElementById('text1');
 
-
 // BONECO ------------------------------------------------------
 const boneco = document.getElementsByClassName('boneco')[0];
 const meio = boneco.children[1].children;
