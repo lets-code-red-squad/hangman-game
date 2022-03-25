@@ -40,11 +40,13 @@ let code = '';
 let infos;
 let totalDerrotas = 0;
 let totalVitorias = 0;
+var corfundo = '';
 
 // FUNÇÕES -----------------------------------------------------
 function apresenta(mens) {
     mensagem.innerHTML = mens;
     popup.appendChild(mensagem);
+    corfundo= body.style.backgroundColor
     body.style.backgroundColor = '#00000042';
     popup.style.display = 'flex';
 }
@@ -133,7 +135,7 @@ const lista = [
     ['uva', 'goiaba', 'morango', 'jaca', 'abacaxi', 'maçã', 'mamão', 'melão', 'abacate', 'acerola', 'jabuticaba', 'banana', 'tamarindo', 'açaí']],
     
     ['Pessoa Famosa',
-    ['Neymar','Faustão','Gusttavo Lima','Tony Ramos','Whindersson Nunes','Anitta','Paola Oliveira','Beyonce','Messi','Cristiano Ronaldo','Michael Jackson','Albert Einstein','Leonardo da Vinci','Isaac Newton']],
+    ['Neymar','Faustão','Gusttavo Lima','Tony Ramos','Whindersson Nunes','Anitta','Paola Oliveira','Beyonce','Lionel Messi','Cristiano Ronaldo','Michael Jackson','Albert Einstein','Leonardo da Vinci','Isaac Newton']],
     
     ['Empresa Famosa',
     ['Addidas','Nike','Puma','Apple','Gucci','Coca Cola','Google','McDonalds','Burger King','Samsung','Petrobras','Microsoft','Amazon','Disney','Facebook','Netflix','Toyota']]
@@ -157,7 +159,7 @@ btnTryAgain.onclick = () => {
     Object.values(corpo).forEach((parte) => parte.classList.remove('show'));
     sorteia();
     popup.style.display = 'none';
-    body.style.backgroundColor = 'transparent'
+    body.style.backgroundColor = corfundo;
 };
 
 window.onkeydown = (event) => {
