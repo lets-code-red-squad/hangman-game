@@ -51,29 +51,35 @@ function apresenta(mens) {
 
 function sorteia() {
     riscos = [] //limpa os riscos
-    let i = 0;
-    let j = 0;
+    var i = 0
+    var j = 0
     //soteia a palavra
-    i = Math.floor(Math.random() * lista.length);
-    tema = lista[i][0];
-    j = Math.floor(Math.random() * lista[i][1].length);
-    palavra = lista[i][1][j];
+    i = Math.floor(Math.random() * lista.length)
+    tema = lista[i][0]
+    j = Math.floor(Math.random() * lista[i][1].length)
+    palavra = lista[i][1][j]
     dica.innerHTML = tema; //joga o tema na tela
 
-    textRiscos = '';
-    for (const i in palavra) {
-        palavra[i] === ' ' ? riscos.push('  ') : riscos.push('_');
+    textRiscos = ''
+    for (let i = 0; i < palavra.length; i++) {
+
+        if (palavra[i] === ' ') {
+            riscos.push('  ');
+        } else {
+            riscos.push('_');
+        }
     }
-    apresentaPalavra();
+    apresentaPalavra()
 };
 
 function verificaLetra(code) {
-    let x = false;
+    var x = false
 
-    for (const i in palavra) {
+    for (let i = 0; i < palavra.length; i++) {
         if (code.toLowerCase() == ((palavra.substring(i, (i + 1))).normalize("NFD").replace(/[^a-zA-Zs]/g, "")).toLowerCase()) {
-            riscos[i] = palavra.substring(i, (i + 1));
-            x = true;
+            riscos[i] = palavra.substring(i, (i + 1))
+
+            x = true
         }
     }
 
@@ -98,7 +104,7 @@ function verificaLetra(code) {
 
         }
     } else {
-        apresentaPalavra();
+        apresentaPalavra()
     }
 
 }
@@ -145,8 +151,8 @@ class Pessoa {
 // EVENTOS ---------------------------------------------------------
 
 btnTryAgain.onclick = () => {
-    iErro = 0;
-    ok = true;
+    iErro = 0
+    ok = true
     letrasTentadas = '';
     Object.values(corpo).forEach((parte) => parte.classList.remove('show'));
     sorteia();
@@ -162,8 +168,8 @@ window.onkeydown = (event) => {
             if (letrasTentadas.indexOf(code) !== -1) {
                 alert(`A letra "${code}" já foi testada. Tente outra letra.`);
             } else {
-                letrasTentadas += code;
-                verificaLetra(code);
+                letrasTentadas += code
+                verificaLetra(code)
             }
         }
     }
