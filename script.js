@@ -108,7 +108,6 @@ function verificaLetra(code) {
 
         }
     } else {
-        console.log(riscos)
         apresentaPalavra()
     }
 
