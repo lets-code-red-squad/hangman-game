@@ -2,6 +2,11 @@
 :root {
   --color-man: black;
 }
+
+body {
+  font-family: 'Josefin Sans', sans-serif;  
+}
+
 html{
   height: 100%;
 }
@@ -13,42 +18,54 @@ body{
   align-items: center;
   height: 100%;
 }
+
 h1{
   font-size: 42px;
 }
+
 .cadastro{
   color: aliceblue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(93, 6, 255, 0.76);
+  background-color: rgba(173, 84, 0, 0.76);
   width: 400px;
-  height: 130px;
-  margin-right: auto;
-  margin-top: 0;
-  margin-left: auto;
+  height: 180px;
   border-radius: 10px;
   box-shadow: 1px 1px 10px black;
 }
+
 .cadastro button{
   color: aliceblue;
   border-radius: 10px;
   font-size: 16px;
-  background-color: blue;
-  
+  background-color: rgb(170, 78, 50);
   height: 30px;
   width: 50%;
+  margin-top: 10px;
 }
-.cadastro div{
+
+.letra {
+  height: 50px;
+}
+
+.cadastro div {
+  text-align: center;
+  padding: 10px;
   height: 30px;
   margin-bottom: 5px;
   width: 90%;
 }
-.cadastro div input{
+
+
+.cadastro div input {
+  padding: 3px;
+  margin-top: 5px;
   margin-bottom: 5px;
-  width: 70%;
+  width: 85%;
 }
+
 .hidden {
   display: none;
 }
@@ -61,11 +78,13 @@ h1{
   font-size: 40px;
   padding: 15px;
 }
+
 .forca{
   background-image: url(forca.png);
   background-repeat: no-repeat;
   zoom: .6;
 }
+
 .boneco {
   
   padding-top: 280px;
@@ -79,10 +98,10 @@ h1{
 }
 
 .cabeca {
-  border: solid 5px var(--color-man);
+  background-color: var(--color-man);
   border-radius: 100%;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   display: none;
 }
 .meio {
@@ -93,26 +112,26 @@ h1{
 .corpo {
   background-color: var(--color-man);
   height: 160px;
-  width: 5px;
+  width: 7px;
   display: none;
 }
 
 .braco-esquerdo {
   position: absolute;
-  margin-left: -44px;
+  margin-left: -45px;
   background-color: var(--color-man);
   height: 75px;
-  width: 5px;
+  width: 7px;
   transform: rotate(-145deg);
   display: none;
 }
 
 .braco-direito {
   position: absolute;
-  margin-right: -44px;
+  margin-right: -45px;
   background-color: var(--color-man);
   height: 75px;
-  width: 5px;
+  width: 7px;
   transform: rotate(145deg);
   display: none;
 }
@@ -127,7 +146,7 @@ h1{
   margin-top: -10px;
   background-color: var(--color-man);
   height: 75px;
-  width: 5px;
+  width: 7px;
   transform: rotate(145deg);
   display: none;
 }
@@ -138,7 +157,7 @@ h1{
   margin-top: -10px;
   background-color: var(--color-man);
   height: 75px;
-  width: 5px;
+  width: 7px;
   transform: rotate(-145deg);
   display: none;
 }

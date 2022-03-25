@@ -1,37 +1,33 @@
 // CAPTAÇÃO DE OBJETOS HTML -------------------------------------
 const btnTryAgain = document.getElementById('try-again');
+const btnStart = document.getElementById('btn-start');
 const palavraH = document.getElementById('palavra');
 const letras = document.getElementsByClassName('letra');
-const boneco = document.getElementsByClassName('boneco')[0];
 const dica = document.getElementById("dica");
-const btnStart = document.getElementById('btn-start');
 const jogo = document.getElementById('jogo');
 const info = document.getElementById('info');
 const nome = document.getElementById('nome');
 const email = document.getElementById('email');
 const popup = document.getElementById('popup');
 const body = document.getElementsByTagName('body')[0];
-const cabeca = boneco.children[0];
-const meio = boneco.children[1].children;
-const bracoEsquerdo = meio[0];
-const tronco = meio[1];
-const bracoDireito = meio[2];
-const pernas = boneco.children[2].children;
-const pernaEsquerda = pernas[0];
-const pernaDireita = pernas[1];
 const mensagem = document.createElement('p');
 const derrotas = document.getElementById('derrotas');
 const vitorias = document.getElementById('vitorias');
 const text1 = document.getElementById('text1');
 
-const corpo = [
-    cabeca,
-    tronco,
-    bracoEsquerdo,
-    bracoDireito,
-    pernaEsquerda,
-    pernaDireita,
-]
+
+// BONECO ------------------------------------------------------
+const boneco = document.getElementsByClassName('boneco')[0];
+const meio = boneco.children[1].children;
+const pernas = boneco.children[2].children;
+const corpo = {
+    cabeca: boneco.children[0],
+    tronco: meio[1],
+    bracoEsquerdo: meio[0],
+    bracoDireito: meio[2],
+    pernaEsquerda: pernas[0],
+    pernaDireita: pernas[1],
+};
 
 // VARIAVEIS DE CONTROLE ---------------------------------------
 let tema = '';
@@ -39,7 +35,7 @@ let palavra = '';
 let riscos = [];
 let textRiscos = '';
 let iErro = 0;
-let letrasTentadas = ''
+let letrasTentadas = '';
 let ok = true;
 let code = '';
 let infos;
@@ -56,35 +52,29 @@ function apresenta(mens) {
 
 function sorteia() {
     riscos = [] //limpa os riscos
-    var i = 0
-    var j = 0
+    let i = 0;
+    let j = 0;
     //soteia a palavra
-    i = Math.floor(Math.random() * lista.length)
-    tema = lista[i][0]
-    j = Math.floor(Math.random() * lista[i][1].length)
-    palavra = lista[i][1][j]
+    i = Math.floor(Math.random() * lista.length);
+    tema = lista[i][0];
+    j = Math.floor(Math.random() * lista[i][1].length);
+    palavra = lista[i][1][j];
     dica.innerHTML = tema; //joga o tema na tela
 
-    textRiscos = ''
-    for (let i = 0; i < palavra.length; i++) {
-
-        if (palavra[i] === ' ') {
-            riscos.push('  ');
-        } else {
-            riscos.push('_');
-        }
+    textRiscos = '';
+    for (const i in palavra) {
+        palavra[i] === ' ' ? riscos.push('  ') : riscos.push('_');
     }
-    apresentaPalavra()
+    apresentaPalavra();
 };
 
 function verificaLetra(code) {
-    var x = false
+    let x = false;
 
-    for (let i = 0; i < palavra.length; i++) {
+    for (const i in palavra) {
         if (code.toLowerCase() == ((palavra.substring(i, (i + 1))).normalize("NFD").replace(/[^a-zA-Zs]/g, "")).toLowerCase()) {
-            riscos[i] = palavra.substring(i, (i + 1))
-
-            x = true
+            riscos[i] = palavra.substring(i, (i + 1));
+            x = true;
         }
     }
 
@@ -97,7 +87,8 @@ function verificaLetra(code) {
     }
 
     if (!(x)) {
-        corpo[iErro].classList.add('show');
+        const keys = Object.keys(corpo);
+        corpo[keys[iErro]].classList.add('show');
         iErro += 1;
         if (iErro == 6) {
             totalDerrotas += 1;
@@ -108,8 +99,7 @@ function verificaLetra(code) {
 
         }
     } else {
-        console.log(riscos)
-        apresentaPalavra()
+        apresentaPalavra();
     }
 
 }
@@ -156,10 +146,10 @@ class Pessoa {
 // EVENTOS ---------------------------------------------------------
 
 btnTryAgain.onclick = () => {
-    iErro = 0
-    ok = true
+    iErro = 0;
+    ok = true;
     letrasTentadas = '';
-    corpo.forEach((parte) => parte.classList.remove('show'));
+    Object.values(corpo).forEach((parte) => parte.classList.remove('show'));
     sorteia();
     popup.style.display = 'none';
     body.style.backgroundColor = 'transparent'
@@ -173,8 +163,8 @@ window.onkeydown = (event) => {
             if (letrasTentadas.indexOf(code) !== -1) {
                 alert(`A letra "${code}" já foi testada. Tente outra letra.`);
             } else {
-                letrasTentadas += code
-                verificaLetra(code)
+                letrasTentadas += code;
+                verificaLetra(code);
             }
         }
     }
