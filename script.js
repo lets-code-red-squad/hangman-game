@@ -81,7 +81,7 @@ function verificaLetra(code) {
     var x = false
 
     for (let i = 0; i < palavra.length; i++) {
-        if (code.toLowerCase() == palavra.substring(i, (i + 1)).toLowerCase()) {
+        if (code.toLowerCase() == ((palavra.substring(i, (i + 1))).normalize("NFD").replace(/[^a-zA-Zs]/g, "")).toLowerCase()) {
             riscos[i] = palavra.substring(i, (i + 1))
 
             x = true
